@@ -16,7 +16,8 @@
 # along with GNU Radio; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
-
 install(FILES
-    ax25_hackrf_ax25_tx.xml DESTINATION share/gnuradio/grc/blocks
+    ax25_hackrf_ax25_rx_ff.xml
+    ax25_hackrf_ax25_crc_ff.xml
+    ax25_hackrf_ax25_tx_ff.xml DESTINATION share/gnuradio/grc/blocks
 )

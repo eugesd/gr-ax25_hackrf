@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <block>
-  <name>ax25_tx</name>
-  <key>ax25_hackrf_ax25_tx</key>
+  <name>ax25_rx_ff</name>
+  <key>ax25_hackrf_ax25_rx_ff</key>
   <category>[ax25_hackrf]</category>
   <import>import ax25_hackrf</import>
-  <make>ax25_hackrf.ax25_tx()</make>
+  <make>ax25_hackrf.ax25_rx_ff()</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name

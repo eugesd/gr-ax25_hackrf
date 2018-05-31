@@ -22,5 +22,7 @@
 ########################################################################
 install(FILES
     api.h
-    ax25_tx.h DESTINATION include/ax25_hackrf
+    ax25_rx_ff.h
+    ax25_crc_ff.h
+    ax25_tx_ff.h DESTINATION include/ax25_hackrf
 )

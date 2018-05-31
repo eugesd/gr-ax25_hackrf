@@ -23,7 +23,7 @@ from gnuradio import gr, gr_unittest
 from gnuradio import blocks
 import ax25_hackrf_swig as ax25_hackrf
 
-class qa_ax25_tx (gr_unittest.TestCase):
+class qa_ax25_rx_ff (gr_unittest.TestCase):
 
     def setUp (self):
         self.tb = gr.top_block ()
@@ -38,4 +38,4 @@ class qa_ax25_tx (gr_unittest.TestCase):
 
 
 if __name__ == '__main__':
-    gr_unittest.run(qa_ax25_tx, "qa_ax25_tx.xml")
+    gr_unittest.run(qa_ax25_rx_ff, "qa_ax25_rx_ff.xml")

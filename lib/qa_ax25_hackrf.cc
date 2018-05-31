@@ -27,10 +27,18 @@
 
 #include "qa_ax25_hackrf.h"
 
+#include "qa_ax25_rx_ff.h"
+#include "qa_ax25_crc_ff.h"
+#include "qa_ax25_tx_ff.h"
+
 CppUnit::TestSuite *
 qa_ax25_hackrf::suite()
 {
   CppUnit::TestSuite *s = new CppUnit::TestSuite("ax25_hackrf");
+
+  s->addTest(gr::ax25_hackrf::qa_ax25_rx_ff::suite());
+  s->addTest(gr::ax25_hackrf::qa_ax25_crc_ff::suite());
+  s->addTest(gr::ax25_hackrf::qa_ax25_tx_ff::suite());
 
   return s;
 }

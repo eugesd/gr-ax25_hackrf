@@ -18,39 +18,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#ifndef INCLUDED_AX25_HACKRF_AX25_RX_FF_IMPL_H
+#define INCLUDED_AX25_HACKRF_AX25_RX_FF_IMPL_H
 
-#ifndef INCLUDED_AX25_HACKRF_AX25_TX_H
-#define INCLUDED_AX25_HACKRF_AX25_TX_H
-
-#include <ax25_hackrf/api.h>
-#include <gnuradio/block.h>
+#include <ax25_hackrf/ax25_rx_ff.h>
 
 namespace gr {
   namespace ax25_hackrf {
 
-    /*!
-     * \brief <+description of block+>
-     * \ingroup ax25_hackrf
-     *
-     */
-    class AX25_HACKRF_API ax25_tx : virtual public gr::block
+    class ax25_rx_ff_impl : public ax25_rx_ff
     {
-     public:
-      typedef boost::shared_ptr<ax25_tx> sptr;
+     private:
+      // Nothing to declare in this block.
 
-      /*!
-       * \brief Return a shared_ptr to a new instance of ax25_hackrf::ax25_tx.
-       *
-       * To avoid accidental use of raw pointers, ax25_hackrf::ax25_tx's
-       * constructor is in a private implementation
-       * class. ax25_hackrf::ax25_tx::make is the public interface for
-       * creating new instances.
-       */
-      static sptr make();
+     public:
+      ax25_rx_ff_impl();
+      ~ax25_rx_ff_impl();
+
+      // Where all the action really happens
+      void forecast (int noutput_items, gr_vector_int &ninput_items_required);
+
+      int general_work(int noutput_items,
+           gr_vector_int &ninput_items,
+           gr_vector_const_void_star &input_items,
+           gr_vector_void_star &output_items);
     };
 
   } // namespace ax25_hackrf
 } // namespace gr
 
-#endif /* INCLUDED_AX25_HACKRF_AX25_TX_H */
+#endif /* INCLUDED_AX25_HACKRF_AX25_RX_FF_IMPL_H */
 

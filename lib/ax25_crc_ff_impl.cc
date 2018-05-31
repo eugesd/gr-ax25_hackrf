@@ -23,23 +23,23 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "ax25_tx_impl.h"
+#include "ax25_crc_ff_impl.h"
 
 namespace gr {
   namespace ax25_hackrf {
 
-    ax25_tx::sptr
-    ax25_tx::make()
+    ax25_crc_ff::sptr
+    ax25_crc_ff::make()
     {
       return gnuradio::get_initial_sptr
-        (new ax25_tx_impl());
+        (new ax25_crc_ff_impl());
     }
 
     /*
      * The private constructor
      */
-    ax25_tx_impl::ax25_tx_impl()
-      : gr::block("ax25_tx",
+    ax25_crc_ff_impl::ax25_crc_ff_impl()
+      : gr::block("ax25_crc_ff",
               gr::io_signature::make(<+MIN_IN+>, <+MAX_IN+>, sizeof(<+ITYPE+>)),
               gr::io_signature::make(<+MIN_OUT+>, <+MAX_OUT+>, sizeof(<+OTYPE+>)))
     {}
@@ -47,18 +47,18 @@ namespace gr {
     /*
      * Our virtual destructor.
      */
-    ax25_tx_impl::~ax25_tx_impl()
+    ax25_crc_ff_impl::~ax25_crc_ff_impl()
     {
     }
 
     void
-    ax25_tx_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+    ax25_crc_ff_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
     {
       /* <+forecast+> e.g. ninput_items_required[0] = noutput_items */
     }
 
     int
-    ax25_tx_impl::general_work (int noutput_items,
+    ax25_crc_ff_impl::general_work (int noutput_items,
                        gr_vector_int &ninput_items,
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)

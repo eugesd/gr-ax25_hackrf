@@ -24,9 +24,10 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND ax25_hackrf_sources
-    ax25_tx_impl.cc
+    ax25_rx_ff_impl.cc
+    ax25_crc_ff_impl.cc
+    ax25_tx_ff_impl.cc
 )
 
 set(ax25_hackrf_sources "${ax25_hackrf_sources}" PARENT_SCOPE)
@@ -57,11 +58,13 @@ GR_LIBRARY_FOO(gnuradio-ax25_hackrf RUNTIME_COMPONENT "ax25_hackrf_runtime" DEVE
 include(GrTest)
 
 include_directories(${CPPUNIT_INCLUDE_DIRS})
-
 list(APPEND test_ax25_hackrf_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/test_ax25_hackrf.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_ax25_hackrf.cc
-)
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_ax25_tx_ff.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_ax25_crc_ff.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_ax25_rx_ff.cc
+    )
 
 add_executable(test-ax25_hackrf ${test_ax25_hackrf_sources})
 
