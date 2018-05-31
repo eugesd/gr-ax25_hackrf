@@ -18,5 +18,5 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    DESTINATION share/gnuradio/grc/blocks
+    ax25_hackrf_ax25_tx.xml DESTINATION share/gnuradio/grc/blocks
 )

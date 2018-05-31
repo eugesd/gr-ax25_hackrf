@@ -26,6 +26,7 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND ax25_hackrf_sources
+    ax25_tx_impl.cc
 )
 
 set(ax25_hackrf_sources "${ax25_hackrf_sources}" PARENT_SCOPE)
