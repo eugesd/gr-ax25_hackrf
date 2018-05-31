@@ -1,0 +1,30 @@
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_AX25_HACKRF ax25_hackrf)
+
+FIND_PATH(
+    AX25_HACKRF_INCLUDE_DIRS
+    NAMES ax25_hackrf/api.h
+    HINTS $ENV{AX25_HACKRF_DIR}/include
+        ${PC_AX25_HACKRF_INCLUDEDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/include
+          /usr/local/include
+          /usr/include
+)
+
+FIND_LIBRARY(
+    AX25_HACKRF_LIBRARIES
+    NAMES gnuradio-ax25_hackrf
+    HINTS $ENV{AX25_HACKRF_DIR}/lib
+        ${PC_AX25_HACKRF_LIBDIR}
+    PATHS ${CMAKE_INSTALL_PREFIX}/lib
+          ${CMAKE_INSTALL_PREFIX}/lib64
+          /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(AX25_HACKRF DEFAULT_MSG AX25_HACKRF_LIBRARIES AX25_HACKRF_INCLUDE_DIRS)
+MARK_AS_ADVANCED(AX25_HACKRF_LIBRARIES AX25_HACKRF_INCLUDE_DIRS)
+
